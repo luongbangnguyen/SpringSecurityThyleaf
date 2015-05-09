@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert title here</title>
+<style type="text/css">
+th {
+	text-align: left;
+}
+
+.error {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<form method="post" th:object="${account}"
+		enctype="multipart/form-data">
+		<fieldset>
+			<table cellpadding="0">
+				<tr>
+					<th><label
+						th:class="${#fields.hasErrors('userName')}? 'error'">UserName:</label>
+					</th>
+					<td>
+						<input th:field="*{userName}" size="15" type="text" />
+					</td>
+					<td>
+						<p th:class="${#fields.hasErrors('userName')}? 'error'"
+							th:errors="*{userName}"></p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label th:class="${#fields.hasErrors('email')}? 'error'">Email:</label>
+					</th>
+					<td>
+						<input th:field="*{email}" size="30" type="text"/>
+					</td>
+					<td>
+						<p th:class="${#fields.hasErrors('email')}? 'error'" th:errors="*{email}"></p>
+					</td>
+				</tr>
+				<tr>
+					<th><label
+						th:class="${#fields.hasErrors('password')}? 'error'">Password:
+					</label></th>
+					<td><input th:field="*{password}" size="30" /></td>
+					<td><p th:class="${#fields.hasErrors('password')}? 'error'"
+							th:errors="*{password}"></p></td>
+				</tr>
+				<tr>
+					<th><label>Profile image:</label></th>
+					<td><input name="image" type="file" /></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><input name="commit" type="submit"
+						value="I accept. Create my account." /></td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+</body>
+</html>

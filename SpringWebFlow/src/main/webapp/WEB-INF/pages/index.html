@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" xmlns:sec=
+"http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Index</h1>
+	<h1 sec:authorize="isAuthenticated()" th:text="${'Welcome ' + #authentication.name}"></h1>
+	<a th:href="@{/account/login}">Login Page</a>
+	<a th:href="@{/account/register}">Register Page</a>
+	<a th:href="@{/admin/home}">Admin Page</a>
+</body>
+</html>

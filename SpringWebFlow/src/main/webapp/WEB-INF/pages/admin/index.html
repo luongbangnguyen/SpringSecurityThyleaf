@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" xmlns:sec=
+"http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Admin page</h1>
+	<h1 th:text="${'Welcome ' + #authentication.name}"></h1>
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+        This will only be displayed if authenticated user has role ROLE_ADMIN.
+    </div>
+    <a th:href="@{/account/logout}">Logout</a>
+</body>
+</html>
